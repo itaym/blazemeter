@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import Reports from "./components/Reports";
+import { getData, clearData } from "./redux/actions";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props) {
+    const [barState, setBarState] = useState('open');
+    const onClick = function () {
+       const newBarState = barState === 'open' ? 'close' : 'open';
+       setBarState(newBarState);
+    };
+    const refresh = function () {
+        const { dispatch } = props;
+        dispatch(clearData());
+        setTimeout(() => dispatch(getData()), 500);
+    }
+    useEffect(() => {
+        refresh();
+    }, []);
+    return (
+        <div className="app">
+            <div className={`side-bar-area ${barState}`}>
+                <Reports
+                    reports={props.reports}
+                    onClose={onClick}
+                    onRefresh={refresh}/>
+            </div>
+            <div className="content-area" onClick={onClick}>
+                Click here to toggle the side bar!!!
+            </div>
+        </div>
+    );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return state;
+};
+
+export default connect(mapStateToProps)(App);

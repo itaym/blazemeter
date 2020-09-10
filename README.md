@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Requirements
 
-## Available Scripts
+- `sidebar.json` - data file
 
-In the project directory, you can run:
+# Tools to use
 
-### `npm start`
+- Any Javascript tools, frameworks, libraries or code.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Expected Result
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![expected result](sidebar.png "Expected Result")
 
-### `npm test`
+Result should be a web page (html) that can include any style or script (using native or script loader)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Resulting page should work and look the same on all major browsers (Chrome, Firefox, IE 9+)
 
-### `npm run build`
+Result should try to match the expected screenshot as much as possible.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Instructions
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Load the attached `sidebar.json` using any Ajax method of your choice, can be done with the aid of a button, or page load, or whichever way you want.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+What you are looking at in the expected result is actually a part of the Blazemeter application - a sidebar.
 
-### `npm run eject`
+## General sidebar
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. It opens and closes, has an open width of `250px`.
+2. `x` button closes it, and you can add any action item to open it to your choosing.
+3. When it is closed - the sidebar is not visible on screen.
+4. Make the sidebar full height of screen.
+5. If the amount of items in the sidebar do not fit in the visible screen, it is scrollable
+6. Refresh button reloads the data
+7. Reports is a title for the sidebar, and alongside it is the count of the amount of reports from the supplied json.
+8. Grid is sorted based on updated time, using `updated` field.
+9. Button of up/down arrows to the right of the search toggles the sort order of the grid (ascending, descending). *(Optional)*
+10. Below the title there is a search input box that will filter the sidebar data by using the `name` field. *(Optional)*
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Sidebar grid item
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Height is `53px`.
+- Ignore icons and the dot on the left
+- on middle top - shows `name` field
+- on right side - `updated` as a formatted time (date on top, time on bottom)
+- bottom row shows test type.
+- location is taken from the `location` field.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**If you have any open questions about css/data - just assume whichever answer seems the most appropriate. Just go with the flow, the general idea and execution is much more important**
 
-## Learn More
+## What we check
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- General design and concept
+- Tools and libraries selections (overkill is a minus)
+- Code quality and style
+- Execution
+- CSS and UI quality
+- General flow
+- UI
+- Overall working model
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Good luck!
