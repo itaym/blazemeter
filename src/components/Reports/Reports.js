@@ -15,7 +15,6 @@ function Reports (props) {
     const [ sort, setSort ] = useState({ sort: sortAscending });
     const [ search, setSearch ] = useState('');
     const toggleSort = () => {
-        // noinspection JSIncompatibleTypesComparison
         if (sort.sort === sortAscending)
             setSort({ sort: sortDescending });
         else
